@@ -1,0 +1,122 @@
+@font-face {
+    font-family: 'FLEXTYPE_300';
+    font-weight: normal;
+    font-style: normal;
+
+    src: url('http://flextype.org/fonts/FLEXTYPE_300.eot?#iefix') format('embedded-opentype'),
+    url('http://flextype.org/fonts/FLEXTYPE_300.otf')  format('opentype'),
+    url('http://flextype.org/fonts/FLEXTYPE_300.woff') format('woff'),
+    url('http://flextype.org/fonts/FLEXTYPE_300.ttf')  format('truetype'),
+    url('http://flextype.org/fonts/FLEXTYPE_300.svg#FLEXTYPE_300') format('svg');
+}
+
+@font-face {
+    font-family: 'FLEXTYPE_400';
+    font-weight: normal;
+    font-style: normal;
+
+    src: url('http://flextype.orghttp://flextype.org/fonts/FLEXTYPE_400?#iefix') format('embedded-opentype'),
+    url('http://flextype.org/fonts/FLEXTYPE_400.otf')  format('opentype'),
+    url('http://flextype.org/fonts/FLEXTYPE_400.woff') format('woff'),
+    url('http://flextype.org/fonts/FLEXTYPE_400.ttf')  format('truetype'),
+    url('http://flextype.org/fonts/FLEXTYPE_400.svg#FLEXTYPE_400') format('svg');
+}
+
+@font-face {
+    font-family: 'FLEXTYPE_700';
+    font-weight: normal;
+    font-style: normal;
+
+    src: url('http://flextype.org/fonts/FLEXTYPE_700.eot?#iefix') format('embedded-opentype'),
+    url('http://flextype.org/fonts/FLEXTYPE_700.otf')  format('opentype'),
+    url('http://flextype.org/fonts/FLEXTYPE_700.woff') format('woff'),
+    url('http://flextype.org/fonts/FLEXTYPE_700.ttf')  format('truetype'),
+    url('http://flextype.org/fonts/FLEXTYPE_700.svg#FLEXTYPE_700') format('svg');
+}
+
+html,
+body {
+    font-family: 'FLEXTYPE_300', "Helvetica Neue", Helvetica, arial, sans-serif;
+    font-size: 16px;
+
+    height: 100%;
+
+    color: #606060;
+    background-color: #f2f4f5;
+}
+
+body,
+button,
+input,
+select,
+textarea,
+p {
+    font-family: 'FLEXTYPE_300', "Helvetica Neue", Helvetica, arial, sans-serif;
+    font-weight: 400;
+
+    color: #606060;
+}
+
+body,
+p {
+    line-height: 26px;
+}
+
+pre {
+    margin-bottom: 40px;
+}
+
+pre code {
+    padding-left: 15px!important;
+}
+
+h1, h2, h3, h4, h5 {
+    color: black;
+}
+
+.site-header {
+    margin-top: 60px;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    font-size: 48px;
+    color: black;
+}
+
+.component-nav {
+    margin-bottom: 10px;
+    width: 700px;
+}
+
+.component-link {
+    padding: 5px 10px;
+    margin-bottom: 10px;
+    background: #333;
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.component-link.active {
+    background: black;
+    color: white;
+}
+
+.component-link:hover {
+    color: white;
+    text-decoration: none;
+}
+
+.content {
+    padding-top: 40px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.navbar-brand {
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.powered {
+    padding-top: 30px;
+}

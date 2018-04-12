@@ -1,0 +1,35 @@
+[24-Mar-2018 19:41:43] Error: Call to undefined function Flextype\snipplr() in /Applications/MAMP/htdocs/flextype/site/themes/default/index.php at line 3
+[24-Mar-2018 19:43:58] ErrorException: Compile Error: Constant expression contains invalid operations in /Applications/MAMP/htdocs/flextype/site/plugins/bacon-ipsum/bacon-ipsum.php at line 35
+[24-Mar-2018 19:49:27] TypeError: Argument 1 passed to Flextype\bacon() must be of the type string, null given, called in /Applications/MAMP/htdocs/flextype/site/plugins/bacon-ipsum/bacon-ipsum.php on line 26 in /Applications/MAMP/htdocs/flextype/site/plugins/bacon-ipsum/bacon-ipsum.php at line 35
+[24-Mar-2018 19:49:46] TypeError: Argument 1 passed to Flextype\bacon() must be of the type string, null given, called in /Applications/MAMP/htdocs/flextype/site/plugins/bacon-ipsum/bacon-ipsum.php on line 26 in /Applications/MAMP/htdocs/flextype/site/plugins/bacon-ipsum/bacon-ipsum.php at line 35
+[24-Mar-2018 19:50:38] TypeError: Argument 2 passed to Flextype\bacon() must be of the type integer, null given, called in /Applications/MAMP/htdocs/flextype/site/plugins/bacon-ipsum/bacon-ipsum.php on line 26 in /Applications/MAMP/htdocs/flextype/site/plugins/bacon-ipsum/bacon-ipsum.php at line 35
+[24-Mar-2018 19:51:15] TypeError: Argument 2 passed to Flextype\bacon() must be of the type integer, null given, called in /Applications/MAMP/htdocs/flextype/site/plugins/bacon-ipsum/bacon-ipsum.php on line 27 in /Applications/MAMP/htdocs/flextype/site/plugins/bacon-ipsum/bacon-ipsum.php at line 36
+[24-Mar-2018 19:56:59] TypeError: Argument 2 passed to Flextype\bacon() must be of the type integer, null given, called in /Applications/MAMP/htdocs/flextype/site/plugins/bacon-ipsum/bacon-ipsum.php on line 26 in /Applications/MAMP/htdocs/flextype/site/plugins/bacon-ipsum/bacon-ipsum.php at line 35
+[24-Mar-2018 21:53:38] ErrorException: Compile Error: Cannot use isset() on the result of an expression (you can use "null !== expression" instead) in /Applications/MAMP/htdocs/flextype/site/plugins/bacon-ipsum/bacon-ipsum.php at line 38
+[24-Mar-2018 22:09:01] ParseError: syntax error, unexpected '&&' (T_BOOLEAN_AND) in /Applications/MAMP/htdocs/flextype/site/plugins/bacon-ipsum/bacon-ipsum.php at line 56
+[24-Mar-2018 22:09:09] ErrorException: Compile Error: Cannot use isset() on the result of an expression (you can use "null !== expression" instead) in /Applications/MAMP/htdocs/flextype/site/plugins/bacon-ipsum/bacon-ipsum.php at line 38
+[24-Mar-2018 22:09:46] ErrorException: Compile Error: Cannot use isset() on the result of an expression (you can use "null !== expression" instead) in /Applications/MAMP/htdocs/flextype/site/plugins/bacon-ipsum/bacon-ipsum.php at line 38
+[24-Mar-2018 22:09:56] ErrorException: Compile Error: Cannot use isset() on the result of an expression (you can use "null !== expression" instead) in /Applications/MAMP/htdocs/flextype/site/plugins/bacon-ipsum/bacon-ipsum.php at line 44
+[24-Mar-2018 22:14:54] ErrorException: Compile Error: Cannot use isset() on the result of an expression (you can use "null !== expression" instead) in /Applications/MAMP/htdocs/flextype/site/plugins/bacon-ipsum/bacon-ipsum.php at line 43
+[24-Mar-2018 22:15:20] TypeError: Argument 2 passed to Flextype\bacon() must be of the type integer, null given, called in /Applications/MAMP/htdocs/flextype/site/plugins/bacon-ipsum/bacon-ipsum.php on line 26 in /Applications/MAMP/htdocs/flextype/site/plugins/bacon-ipsum/bacon-ipsum.php at line 35
+[24-Mar-2018 22:16:08] TypeError: Argument 3 passed to Flextype\bacon() must be of the type integer, null given, called in /Applications/MAMP/htdocs/flextype/site/plugins/bacon-ipsum/bacon-ipsum.php on line 26 in /Applications/MAMP/htdocs/flextype/site/plugins/bacon-ipsum/bacon-ipsum.php at line 35
+[24-Mar-2018 22:16:49] TypeError: Argument 4 passed to Flextype\bacon() must be of the type integer, null given, called in /Applications/MAMP/htdocs/flextype/site/plugins/bacon-ipsum/bacon-ipsum.php on line 26 in /Applications/MAMP/htdocs/flextype/site/plugins/bacon-ipsum/bacon-ipsum.php at line 35
+[24-Mar-2018 22:18:25] TypeError: Argument 4 passed to Flextype\bacon() must be of the type integer, null given, called in /Applications/MAMP/htdocs/flextype/site/plugins/bacon-ipsum/bacon-ipsum.php on line 26 in /Applications/MAMP/htdocs/flextype/site/plugins/bacon-ipsum/bacon-ipsum.php at line 35
+[24-Mar-2018 23:21:21] Error: Call to undefined function Flextype\bacon() in /Applications/MAMP/htdocs/flextype/site/themes/default/index.php at line 4
+[24-Mar-2018 23:22:02] Error: Class 'Flextype\Response' not found in /Applications/MAMP/htdocs/flextype/site/plugins/sitemap/sitemap.php at line 20
+[24-Mar-2018 23:22:22] ErrorException: Notice: Undefined variable: pages in /Applications/MAMP/htdocs/flextype/flextype/Pages.php at line 194
+[24-Mar-2018 23:22:38] ErrorException: Notice: Undefined variable: pages in /Applications/MAMP/htdocs/flextype/flextype/Pages.php at line 194
+[24-Mar-2018 23:23:33] ErrorException: Notice: Undefined variable: pages in /Applications/MAMP/htdocs/flextype/flextype/Pages.php at line 187
+[24-Mar-2018 23:37:51] ParseError: syntax error, unexpected 'version' (T_STRING) in /Applications/MAMP/htdocs/flextype/site/plugins/sitemap/views/sitemap.php at line 1
+[24-Mar-2018 23:38:21] ParseError: syntax error, unexpected 'else' (T_ELSE), expecting ',' or ';' in /Applications/MAMP/htdocs/flextype/site/plugins/sitemap/views/sitemap.php at line 7
+[24-Mar-2018 23:39:01] ParseError: syntax error, unexpected 'else' (T_ELSE), expecting ',' or ';' in /Applications/MAMP/htdocs/flextype/site/plugins/sitemap/views/sitemap.php at line 7
+[24-Mar-2018 23:39:07] ErrorException: Notice: Undefined index: date in /Applications/MAMP/htdocs/flextype/site/plugins/sitemap/views/sitemap.php at line 6
+[24-Mar-2018 23:39:56] ErrorException: Notice: Undefined index: changefreq in /Applications/MAMP/htdocs/flextype/site/plugins/sitemap/views/sitemap.php at line 7
+[24-Mar-2018 23:48:04] ErrorException: Notice: Undefined variable: pages in /Applications/MAMP/htdocs/flextype/flextype/Pages.php at line 187
+[24-Mar-2018 23:50:58] ErrorException: Notice: Undefined variable: pages in /Applications/MAMP/htdocs/flextype/flextype/Pages.php at line 187
+[24-Mar-2018 23:51:29] ErrorException: Notice: Undefined variable: pages in /Applications/MAMP/htdocs/flextype/flextype/Pages.php at line 187
+[24-Mar-2018 23:51:51] ErrorException: Notice: Undefined variable: pages in /Applications/MAMP/htdocs/flextype/flextype/Pages.php at line 187
+[24-Mar-2018 23:52:10] ErrorException: Notice: Undefined variable: pages in /Applications/MAMP/htdocs/flextype/flextype/Pages.php at line 187
+[24-Mar-2018 23:55:52] ErrorException: Notice: Undefined variable: pages in /Applications/MAMP/htdocs/flextype/flextype/Pages.php at line 187
+[24-Mar-2018 23:56:00] ErrorException: Notice: Undefined variable: pages in /Applications/MAMP/htdocs/flextype/flextype/Pages.php at line 187
+[24-Mar-2018 23:56:28] ErrorException: Notice: Undefined variable: pages in /Applications/MAMP/htdocs/flextype/flextype/Pages.php at line 185

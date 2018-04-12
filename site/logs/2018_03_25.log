@@ -1,0 +1,38 @@
+[25-Mar-2018 00:04:29] ErrorException: Notice: Undefined index: date in /Applications/MAMP/htdocs/flextype/vendor/force/arr/Arr.php at line 40
+[25-Mar-2018 00:05:58] ErrorException: Notice: Undefined index: date in /Applications/MAMP/htdocs/flextype/vendor/force/arr/Arr.php at line 40
+[25-Mar-2018 00:08:08] ErrorException: Notice: Undefined index: date in /Applications/MAMP/htdocs/flextype/vendor/force/arr/Arr.php at line 40
+[25-Mar-2018 00:30:38] ParseError: syntax error, unexpected '?' in /Applications/MAMP/htdocs/flextype/flextype/Pages.php at line 134
+[25-Mar-2018 00:30:53] ErrorException: Notice: Undefined index: date in /Applications/MAMP/htdocs/flextype/flextype/Pages.php at line 134
+[25-Mar-2018 00:31:03] ErrorException: Notice: Undefined index: date in /Applications/MAMP/htdocs/flextype/flextype/Pages.php at line 134
+[25-Mar-2018 00:43:25] Error: Class 'Flextype\RuntimeException' not found in /Applications/MAMP/htdocs/flextype/flextype/Pages.php at line 101
+[25-Mar-2018 00:52:10] TypeError: Return value of Flextype\Flextype::init() must be an instance of Flextype\Flextype, boolean returned in /Applications/MAMP/htdocs/flextype/flextype/Flextype.php at line 168
+[25-Mar-2018 00:52:23] TypeError: Return value of Flextype\Flextype::init() must be an instance of Flextype\Flextype, boolean returned in /Applications/MAMP/htdocs/flextype/flextype/Flextype.php at line 168
+[25-Mar-2018 00:54:13] TypeError: Return value of Flextype\Flextype::init() must be an instance of Flextype\object, boolean returned in /Applications/MAMP/htdocs/flextype/flextype/Flextype.php at line 168
+[25-Mar-2018 00:54:25] TypeError: Return value of Flextype\Flextype::init() must be an instance of Flextype\Flextype, boolean returned in /Applications/MAMP/htdocs/flextype/flextype/Flextype.php at line 168
+[25-Mar-2018 00:54:30] TypeError: Return value of Flextype\Flextype::init() must be an instance of Flextype, boolean returned in /Applications/MAMP/htdocs/flextype/flextype/Flextype.php at line 168
+[25-Mar-2018 00:54:32] TypeError: Return value of Flextype\Flextype::init() must be an instance of Flextype\Flextype\Flextype, boolean returned in /Applications/MAMP/htdocs/flextype/flextype/Flextype.php at line 168
+[25-Mar-2018 00:56:04] TypeError: Return value of Flextype\Flextype::app() must be of the type string, none returned in /Applications/MAMP/htdocs/flextype/flextype/Flextype.php at line 136
+[25-Mar-2018 01:00:41] ErrorException: Notice: Undefined variable: instance in /Applications/MAMP/htdocs/flextype/flextype/Flextype.php at line 70
+[25-Mar-2018 01:00:50] ErrorException: Notice: Undefined variable: instance in /Applications/MAMP/htdocs/flextype/flextype/Flextype.php at line 70
+[25-Mar-2018 01:10:28] TypeError: Return value of Flextype\Shortcodes::driver() must be an instance of Flextype\object, instance of Thunder\Shortcode\ShortcodeFacade returned in /Applications/MAMP/htdocs/flextype/flextype/Shortcodes.php at line 57
+[25-Mar-2018 19:22:14] TypeError: Return value of Flextype\Pages::getPages() must be of the type array, null returned in /Applications/MAMP/htdocs/flextype/flextype/Pages.php at line 205
+[25-Mar-2018 19:22:14] TypeError: Return value of Flextype\Pages::getPages() must be of the type array, null returned in /Applications/MAMP/htdocs/flextype/flextype/Pages.php at line 205
+[25-Mar-2018 19:22:59] TypeError: Return value of Flextype\Pages::getPages() must be of the type array, null returned in /Applications/MAMP/htdocs/flextype/flextype/Pages.php at line 207
+[25-Mar-2018 19:23:37] TypeError: Return value of Flextype\Pages::getPages() must be of the type array, null returned in /Applications/MAMP/htdocs/flextype/flextype/Pages.php at line 211
+[25-Mar-2018 19:25:00] Error: Class 'Pages' not found in /Applications/MAMP/htdocs/flextype/site/themes/default/index.php at line 4
+[25-Mar-2018 19:30:39] ErrorException: Notice: Undefined index: title in /Applications/MAMP/htdocs/flextype/flextype/Pages.php at line 199
+[25-Mar-2018 19:51:03] ParseError: syntax error, unexpected ';', expecting ',' or ')' in /Applications/MAMP/htdocs/flextype/flextype/Pages.php at line 183
+[25-Mar-2018 20:11:49] TypeError: Return value of Flextype\Pages::getPages() must be of the type array, null returned in /Applications/MAMP/htdocs/flextype/flextype/Pages.php at line 211
+[25-Mar-2018 22:02:31] TypeError: Return value of Flextype\Pages::getPages() must be of the type array, null returned in /Applications/MAMP/htdocs/flextype/flextype/Pages.php at line 215
+[25-Mar-2018 22:04:29] TypeError: Return value of Flextype\Pages::getPages() must be of the type array, null returned in /Applications/MAMP/htdocs/flextype/flextype/Pages.php at line 219
+[25-Mar-2018 22:04:38] TypeError: Return value of Flextype\Pages::getPages() must be of the type array, null returned in /Applications/MAMP/htdocs/flextype/flextype/Pages.php at line 219
+[25-Mar-2018 22:36:52] TypeError: Return value of Flextype\Pages::getPage() must be of the type array, string returned in /Applications/MAMP/htdocs/flextype/flextype/Pages.php at line 163
+[25-Mar-2018 22:37:04] TypeError: Return value of Flextype\Pages::getPage() must be of the type array, string returned in /Applications/MAMP/htdocs/flextype/flextype/Pages.php at line 163
+[25-Mar-2018 22:37:05] TypeError: Return value of Flextype\Pages::getPage() must be of the type array, string returned in /Applications/MAMP/htdocs/flextype/flextype/Pages.php at line 163
+[25-Mar-2018 22:37:13] TypeError: Return value of Flextype\Pages::getPage() must be of the type array, string returned in /Applications/MAMP/htdocs/flextype/flextype/Pages.php at line 163
+[25-Mar-2018 22:37:28] TypeError: Return value of Flextype\Pages::getPage() must be of the type array, string returned in /Applications/MAMP/htdocs/flextype/flextype/Pages.php at line 163
+[25-Mar-2018 22:38:13] TypeError: Return value of Flextype\Pages::getPage() must be of the type array, string returned in /Applications/MAMP/htdocs/flextype/flextype/Pages.php at line 163
+[25-Mar-2018 22:44:39] ErrorException: Notice: Undefined variable: _pages in /Applications/MAMP/htdocs/flextype/flextype/Pages.php at line 218
+[25-Mar-2018 22:44:55] ErrorException: Warning: array_slice() expects parameter 2 to be integer, string given in /Applications/MAMP/htdocs/flextype/flextype/Pages.php at line 218
+[25-Mar-2018 22:45:17] ErrorException: Warning: array_slice() expects parameter 2 to be integer, string given in /Applications/MAMP/htdocs/flextype/flextype/Pages.php at line 218
+[25-Mar-2018 22:45:55] TypeError: Argument 5 passed to Flextype\Pages::getPages() must be of the type integer or null, string given, called in /Applications/MAMP/htdocs/flextype/site/themes/default/index.php on line 5 in /Applications/MAMP/htdocs/flextype/flextype/Pages.php at line 180

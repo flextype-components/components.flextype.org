@@ -1,0 +1,4 @@
+[27-Mar-2018 00:24:36] ParseError: syntax error, unexpected ')' in /Applications/MAMP/htdocs/flextype/flextype/Cache.php at line 231
+[27-Mar-2018 00:31:51] ParseError: syntax error, unexpected 'static' (T_STATIC), expecting ',' or ';' in /Applications/MAMP/htdocs/flextype/flextype/I18n.php at line 110
+[27-Mar-2018 01:25:27] Error: Call to protected method Flextype\Themes::init() from context 'Flextype\Flextype' in /Applications/MAMP/htdocs/flextype/flextype/Flextype.php at line 126
+[27-Mar-2018 12:42:06] Error: Class 'Flextype\RuntimeException' not found in /Applications/MAMP/htdocs/flextype/flextype/Pages.php at line 114

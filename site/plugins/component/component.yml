@@ -1,0 +1,14 @@
+name: Component
+version: 1.0.0
+description: ""
+author:
+  name: Sergey Romanenko
+  email: awilum@yandex.com
+  url: http://flextype.org
+homepage: ""
+bugs: ""
+license: MIT
+
+# Plugin settings
+enabled: true
+theme: monokai

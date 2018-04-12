@@ -1,0 +1,1 @@
+[02-Apr-2018 21:04:06] ErrorException: Warning: include(views/login.php): failed to open stream: No such file or directory in /Applications/MAMP/htdocs/flextype/site/plugins/admin/admin.php at line 74

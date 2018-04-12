@@ -1,0 +1,8 @@
+[22-Mar-2018 19:23:59] TypeError: Argument 1 passed to Symfony\Component\Yaml\Yaml::parse() must be of the type string, null given, called in /Applications/MAMP/htdocs/flextype/flextype/Pages.php on line 113 in /Applications/MAMP/htdocs/flextype/vendor/symfony/yaml/Yaml.php at line 76
+[22-Mar-2018 19:46:30] ParseError: syntax error, unexpected ';' in /Applications/MAMP/htdocs/flextype/flextype/Shortcodes.php at line 49
+[22-Mar-2018 19:50:55] Error: Class 'Flextype\ShortcodeFacade' not found in /Applications/MAMP/htdocs/flextype/flextype/Shortcodes.php at line 38
+[22-Mar-2018 19:51:54] TypeError: Argument 1 passed to Flextype\Flextype::Flextype\{closure}() must be an instance of Flextype\ShortcodeInterface, instance of Thunder\Shortcode\Shortcode\ProcessedShortcode given in /Applications/MAMP/htdocs/flextype/flextype/Flextype.php at line 121
+[22-Mar-2018 20:02:11] Error: Call to undefined method Flextype\Shortcodes::parse() in /Applications/MAMP/htdocs/flextype/flextype/Pages.php at line 112
+[22-Mar-2018 20:02:52] Error: Call to undefined method Flextype\Shortcodes::parse() in /Applications/MAMP/htdocs/flextype/flextype/Pages.php at line 161
+[22-Mar-2018 20:14:24] ParseError: syntax error, unexpected 'registerDefaultShortcodes' (T_STRING), expecting function (T_FUNCTION) or const (T_CONST) in /Applications/MAMP/htdocs/flextype/flextype/Shortcodes.php at line 55
+[22-Mar-2018 20:32:54] TypeError: Argument 1 passed to Flextype\Plugins::Flextype\{closure}() must be an instance of Flextype\ShortcodeInterface, instance of Thunder\Shortcode\Shortcode\ProcessedShortcode given in /Applications/MAMP/htdocs/flextype/site/plugins/reading-time/reading-time.php at line 14
