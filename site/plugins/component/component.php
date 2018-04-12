@@ -14,5 +14,6 @@ Events::addListener('onPageContentAfter', function () {
         $page_content .= '<br><br><br>';
 
         Pages::$page['content'] = $page_content;
+        Http::setResponseStatus(200);
     }
 });

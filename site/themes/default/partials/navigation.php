@@ -10,6 +10,5 @@
     <a class="component-link <?php if (Flextype\Component\Http\Http::getUriSegment(0) == 'token') echo 'active'; ?>" href="<?php echo Flextype\Component\Http\Http::getBaseUrl(); ?>/token">Token</a>
     <a class="component-link <?php if (Flextype\Component\Http\Http::getUriSegment(0) == 'session') echo 'active'; ?>" href="<?php echo Flextype\Component\Http\Http::getBaseUrl(); ?>/session">Session</a>
     <a class="component-link <?php if (Flextype\Component\Http\Http::getUriSegment(0) == 'registry') echo 'active'; ?>" href="<?php echo Flextype\Component\Http\Http::getBaseUrl(); ?>/registry">Registry</a>
-
 </div>
 </center>
