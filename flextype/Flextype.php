@@ -13,7 +13,8 @@
 namespace Flextype;
 
 use Symfony\Component\{Filesystem\Filesystem, Finder\Finder};
-use Flextype\Component\{Http\Http, Session\Session};
+use Url;
+use Session;
 
 class Flextype
 {
@@ -75,14 +76,14 @@ class Flextype
      */
     protected static function app() : void
     {
-        // Create Finder Instance
+        // Init Finder
         static::$finder     = new Finder();
 
-        // Create Filesystem Instance
+        // Init Filesystem
         static::$filesystem = new Filesystem();
 
-        // Create Cache Instance
-        Config::instance();
+        // Init Config
+        Config::init();
 
         // Turn on output buffering
         ob_start();
@@ -102,9 +103,9 @@ class Flextype
         function_exists('mb_internal_encoding') and mb_internal_encoding(Config::get('site.charset'));
 
         // Set Error handler
-        //set_error_handler('ErrorHandler::error');
-        //register_shutdown_function('ErrorHandler::fatal');
-        //set_exception_handler('ErrorHandler::exception');
+        set_error_handler('ErrorHandler::error');
+        register_shutdown_function('ErrorHandler::fatal');
+        set_exception_handler('ErrorHandler::exception');
 
         // Set default timezone
         date_default_timezone_set(Config::get('site.timezone'));
@@ -112,23 +113,23 @@ class Flextype
         // Start the session
         Session::start();
 
-        // Create Cache Instance
-        Cache::instance();
+        // Init Cache
+        Cache::init();
 
-        // Create I18n Instance
-        I18n::instance();
+        // Init I18n
+        I18n::init();
 
-        // Create Shortcodes Instance
-        Shortcodes::instance();
+        // Init Shortcodes
+        Shortcodes::init();
 
-        // Create Themes Instance
-        Themes::instance();
+        // Init Themes
+        Themes::init();
 
-        // Create Plugins Instance
-        Plugins::instance();
+        // Init Plugins
+        Plugins::init();
 
-        // Create Pages Instance
-        Pages::instance();
+        // Init Pages
+        Pages::init();
 
         // Flush (send) the output buffer and turn off output buffering
         ob_end_flush();
@@ -157,13 +158,12 @@ class Flextype
     }
 
     /**
-     * Return the Flextype instance.
-     * Create it if it's not already created.
-     *
-     * @access public
-     * @return object
-     */
-     public static function instance()
+      * Initialize Flextype Application
+      *
+      * @access public
+      * @return object
+      */
+     public static function init()
      {
          return !isset(self::$instance) and self::$instance = new Flextype();
      }

@@ -24,22 +24,11 @@ class Plugins
     protected static $instance = null;
 
     /**
-     * Protected constructor since this is a static class.
-     *
-     * @access  protected
-     */
-    protected function __construct()
-    {
-        static::init();
-    }
-
-    /**
      * Init Plugins
      *
-     * @access protected
-     * @return void
+     * @access public
      */
-    protected static function init() : void
+    protected function __construct()
     {
         // Plugin manifest
         $plugin_manifest = [];
@@ -100,13 +89,12 @@ class Plugins
     }
 
     /**
-     * Return the Plugins instance.
-     * Create it if it's not already created.
+     * Initialize Flextype Plugins
      *
      * @access public
      * @return object
      */
-    public static function instance()
+    public static function init()
     {
         return !isset(self::$instance) and self::$instance = new Plugins();
     }

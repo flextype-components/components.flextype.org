@@ -1,4 +1,0 @@
-[04-Apr-2018 12:33:37] ErrorException: Notice: Undefined variable: user_file in /Applications/MAMP/htdocs/flextype/site/plugins/admin/admin.php at line 120
-[04-Apr-2018 12:34:21] ErrorException: Notice: Undefined variable: user_file in /Applications/MAMP/htdocs/flextype/site/plugins/admin/admin.php at line 121
-[04-Apr-2018 12:35:23] Error: Class 'Flextype\Yaml' not found in /Applications/MAMP/htdocs/flextype/site/plugins/admin/admin.php at line 117
-[04-Apr-2018 12:35:40] Error: Class 'Yaml' not found in /Applications/MAMP/htdocs/flextype/site/plugins/admin/admin.php at line 118

@@ -35,6 +35,3 @@ define('CACHE_PATH', SITE_PATH . '/cache');
 
 // Define the path to the logs directory (without trailing slash).
 define('LOGS_PATH', SITE_PATH . '/logs');
-
-// Define the path to the logs directory (without trailing slash).
-define('ACCOUNTS_PATH', SITE_PATH . '/accounts');

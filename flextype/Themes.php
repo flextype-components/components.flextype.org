@@ -24,54 +24,32 @@ class Themes
     protected static $instance = null;
 
     /**
-     * Protected constructor since this is a static class.
-     *
-     * @access  protected
-     */
-    protected function __construct()
-    {
-        static::init();
-    }
-
-    /**
      * Init Themes
      *
-     * @access protected
-     * @return void
+     * @access public
+     * @return mixed
      */
-    protected static function init() : void
+    protected function __construct()
     {
         // Theme Manifest
         $theme_manifest = [];
 
-        // Theme cache id
-        $theme_cache_id = '';
-
         // Get current theme
         $theme = Config::get('site.theme');
 
-        // Create Unique Cache ID for Theme
-        $theme_cache_id = md5('theme' . THEMES_PATH . $theme);
-
-        if (Cache::driver()->contains($theme_cache_id)) {
-            Config::set('themes.'.Config::get('site.theme'), Cache::driver()->fetch($theme_cache_id));
-        } else {
-            if (Flextype::filesystem()->exists($theme_manifest_file = THEMES_PATH . '/' . $theme . '/' . $theme . '.yml')) {
-                $theme_manifest = Yaml::parseFile($theme_manifest_file);
-                Config::set('themes.'.Config::get('site.theme'), $theme_manifest);
-                Cache::driver()->save($theme_cache_id, $theme_manifest);
-            }
+        if (Flextype::filesystem()->exists($theme_manifest_file = THEMES_PATH . '/' . $theme . '/' . $theme . '.yml')) {
+            $theme_manifest = Yaml::parseFile($theme_manifest_file);
+            Config::set('themes.'.Config::get('site.theme'), $theme_manifest);
         }
     }
 
     /**
-     * Return the Themes instance.
-     * Create it if it's not already created.
+     * Initialize Flextype Themes
      *
      * @access public
      * @return object
      */
-    public static function instance()
+    public static function init()
     {
         return !isset(self::$instance) and self::$instance = new Themes();
     }

@@ -12,7 +12,9 @@
 
 namespace Flextype;
 
-use Flextype\Component\{Arr\Arr, Http\Http};
+use Arr;
+use Url;
+use Response;
 use Symfony\Component\Yaml\Yaml;
 
 class Pages
@@ -32,28 +34,17 @@ class Pages
     public static $page;
 
     /**
-     * Protected constructor since this is a static class.
+     * Constructor
      *
      * @access  protected
      */
     protected function __construct()
     {
-        static::init();
-    }
-
-    /**
-     * Init Pages
-     *
-     * @access protected
-     * @return void
-     */
-    protected static function init() : void
-    {
         // The page is not processed and not sent to the display.
         Events::dispatch('onPageBeforeRender');
 
         // Get current page
-        static::$page = static::getPage(Http::getUriString());
+        static::$page = static::getPage(Url::getUriString());
 
         // Display page for current requested url
         static::renderPage(static::$page);
@@ -90,7 +81,7 @@ class Pages
             $file = $file;
         } else {
             $file = PAGES_PATH . '/404/index.md';
-            Http::setResponseStatus(404);
+            Response::status(404);
         }
 
         return $file;
@@ -125,7 +116,7 @@ class Pages
         $result_page = Yaml::parse($frontmatter);
 
         // Get page url
-        $url = str_replace(PAGES_PATH, Http::getBaseUrl(), $file);
+        $url = str_replace(PAGES_PATH, Url::getBase(), $file);
         $url = str_replace('index.md', '', $url);
         $url = str_replace('.md', '', $url);
         $url = str_replace('\\', '/', $url);
@@ -138,10 +129,10 @@ class Pages
         $result_page['url'] = $url;
 
         // Get page slug
-        $url = str_replace(Http::getBaseUrl(), '', $url);
+        $url = str_replace(Url::getBase(), '', $url);
         $url = ltrim($url, '/');
         $url = rtrim($url, '/');
-        $result_page['slug'] = str_replace(Http::getBaseUrl(), '', $url);
+        $result_page['slug'] = str_replace(Url::getBase(), '', $url);
 
         // Set page date
         $result_page['date'] = $result_page['date'] ?? date(Config::get('site.date_format'), filemtime($file));
@@ -239,13 +230,12 @@ class Pages
     }
 
     /**
-     * Return the Pages instance.
-     * Create it if it's not already created.
+     * Initialize Flextype Pages
      *
      * @access public
      * @return object
      */
-    public static function instance()
+    public static function init()
     {
         return !isset(self::$instance) and self::$instance = new Pages();
     }

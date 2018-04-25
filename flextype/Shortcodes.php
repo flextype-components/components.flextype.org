@@ -13,7 +13,7 @@
 namespace Flextype;
 
 use Thunder\Shortcode\ShortcodeFacade;
-use Flextype\Component\Http\Http;
+use Url;
 
 class Shortcodes
 {
@@ -38,17 +38,6 @@ class Shortcodes
      * @access  protected
      */
     protected function __construct()
-    {
-        static::init();
-    }
-
-    /**
-     * Init Shortcodes
-     *
-     * @access protected
-     * @return void
-     */
-    protected static function init() : void
     {
         // Set driver
         static::$driver = new ShortcodeFacade();
@@ -76,18 +65,17 @@ class Shortcodes
     protected static function registerDefaultShortcodes() : void
     {
         static::driver()->addHandler('site_url', function() {
-            return Http::getBaseUrl();
+            return Url::getBase();
         });
     }
 
     /**
-     * Return the Shortcodes instance.
-     * Create it if it's not already created.
+     * Initialize Flextype Shortcodes
      *
      * @access public
      * @return object
      */
-    public static function instance()
+    public static function init()
     {
         return !isset(self::$instance) and self::$instance = new Shortcodes();
     }

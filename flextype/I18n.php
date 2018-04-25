@@ -81,31 +81,19 @@ class I18n
     }
 
     /**
-     * Protected constructor since this is a static class.
-     *
-     * @access  protected
+     * Construct
      */
     protected function __construct()
-    {
-        static::init();
-    }
-
-    /**
-     * Init I18n
-     *
-     * @access protected
-     * @return void
-     */
-    protected static function init() : void
     {
 
         // Get Plugins and Site Locales list
         (array) $plugins_list = Config::get('site.plugins');
+        (array) $locales      = Config::get('site.locales');
         (array) $dictionary   = [];
 
         // Create dictionary
         if (is_array($plugins_list) && count($plugins_list) > 0) {
-            foreach (static::$locales as $locale => $locale_title) {
+            foreach ($locales as $locale) {
                 foreach ($plugins_list as $plugin) {
                     $language_file = PLUGINS_PATH . '/' . $plugin . '/languages/' . $locale . '.yml';
                     if (file_exists($language_file)) {
@@ -143,13 +131,12 @@ class I18n
     }
 
     /**
-     * Return the I18n instance.
-     * Create it if it's not already created.
+     * Initialize Flextype I18n
      *
      * @access public
      * @return object
      */
-    public static function instance()
+    public static function init()
     {
         return !isset(self::$instance) and self::$instance = new I18n();
     }

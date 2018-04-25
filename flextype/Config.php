@@ -12,7 +12,7 @@
 
 namespace Flextype;
 
-use Flextype\Component\Arr\Arr;
+use Arr;
 use Symfony\Component\Yaml\Yaml;
 
 class Config
@@ -45,22 +45,11 @@ class Config
     }
 
     /**
-     * Protected constructor since this is a static class.
+     * Constructor.
      *
      * @access  protected
      */
     protected function __construct()
-    {
-        static::init();
-    }
-
-    /**
-     * Init Config
-     *
-     * @access protected
-     * @return void
-     */
-    protected static function init() : void
     {
         if (Flextype::filesystem()->exists($site_config = CONFIG_PATH . '/' . 'site.yml')) {
             static::$config['site'] = Yaml::parse(file_get_contents($site_config));
@@ -106,13 +95,11 @@ class Config
     }
 
     /**
-     * Return the Config instance.
-     * Create it if it's not already created.
+     * Initialize Flextype Config
      *
-     * @access public
-     * @return object
+     * @access  public
      */
-    public static function instance()
+    public static function init()
     {
         return !isset(self::$instance) and self::$instance = new Config();
     }

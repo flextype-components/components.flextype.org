@@ -1,0 +1,25 @@
+//
+// Links
+//
+
+
+a {
+    transition: all .3s ease;
+    text-decoration: none;
+
+    &.external {
+        text-decoration: underline;
+    }
+
+    color: @base-font-color;
+
+    &:hover {
+        text-decoration: none;
+
+        &.external {
+            text-decoration: underline;
+        }
+
+        color: @black;
+    }
+}
