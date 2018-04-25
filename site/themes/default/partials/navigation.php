@@ -12,6 +12,7 @@
     <a class="component-link <?php if (Flextype\Component\Http\Http::getUriSegment(0) == 'http') echo 'active'; ?>" href="<?php echo Flextype\Component\Http\Http::getBaseUrl(); ?>/http">Http</a>
     <a class="component-link <?php if (Flextype\Component\Http\Http::getUriSegment(0) == 'number') echo 'active'; ?>" href="<?php echo Flextype\Component\Http\Http::getBaseUrl(); ?>/number">Number</a>
     <a class="component-link <?php if (Flextype\Component\Http\Http::getUriSegment(0) == 'notification') echo 'active'; ?>" href="<?php echo Flextype\Component\Http\Http::getBaseUrl(); ?>/notification">Notification</a>
+    <a class="component-link <?php if (Flextype\Component\Http\Http::getUriSegment(0) == 'template') echo 'active'; ?>" href="<?php echo Flextype\Component\Http\Http::getBaseUrl(); ?>/template">Template</a>
     <a class="component-link <?php if (Flextype\Component\Http\Http::getUriSegment(0) == 'text') echo 'active'; ?>" href="<?php echo Flextype\Component\Http\Http::getBaseUrl(); ?>/text">Text</a>
     <a class="component-link <?php if (Flextype\Component\Http\Http::getUriSegment(0) == 'token') echo 'active'; ?>" href="<?php echo Flextype\Component\Http\Http::getBaseUrl(); ?>/token">Token</a>
     <a class="component-link <?php if (Flextype\Component\Http\Http::getUriSegment(0) == 'session') echo 'active'; ?>" href="<?php echo Flextype\Component\Http\Http::getBaseUrl(); ?>/session">Session</a>
