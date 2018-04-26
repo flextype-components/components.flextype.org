@@ -16,6 +16,7 @@
                   <a class="nav-link <?php if (Url::getUriSegment(1) == 'curl') echo 'active'; ?>" href="<?php echo Url::getBase(); ?>/documentation/curl">Curl</a>
                   <a class="nav-link <?php if (Url::getUriSegment(1) == 'date') echo 'active'; ?>" href="<?php echo Url::getBase(); ?>/documentation/date">Date</a>
                   <a class="nav-link <?php if (Url::getUriSegment(1) == 'debug') echo 'active'; ?>" href="<?php echo Url::getBase(); ?>/documentation/debug">Debug</a>
+                  <a class="nav-link <?php if (Url::getUriSegment(1) == 'event') echo 'active'; ?>" href="<?php echo Url::getBase(); ?>/documentation/event">Event</a>
                   <a class="nav-link <?php if (Url::getUriSegment(1) == 'filesystem') echo 'active'; ?>" href="<?php echo Url::getBase(); ?>/documentation/filesystem">Filesystem</a>
                   <a class="nav-link <?php if (Url::getUriSegment(1) == 'html') echo 'active'; ?>" href="<?php echo Url::getBase(); ?>/documentation/html">Html</a>
                   <a class="nav-link <?php if (Url::getUriSegment(1) == 'http') echo 'active'; ?>" href="<?php echo Url::getBase(); ?>/documentation/http">Http</a>
@@ -26,6 +27,7 @@
                   <a class="nav-link <?php if (Url::getUriSegment(1) == 'token') echo 'active'; ?>" href="<?php echo Url::getBase(); ?>/documentation/token">Token</a>
                   <a class="nav-link <?php if (Url::getUriSegment(1) == 'session') echo 'active'; ?>" href="<?php echo Url::getBase(); ?>/documentation/session">Session</a>
                   <a class="nav-link <?php if (Url::getUriSegment(1) == 'registry') echo 'active'; ?>" href="<?php echo Url::getBase(); ?>/documentation/registry">Registry</a>
+                  <a class="nav-link <?php if (Url::getUriSegment(1) == 'view') echo 'active'; ?>" href="<?php echo Url::getBase(); ?>/documentation/view">View</a>
                 </nav>
             </div>
           </div>
