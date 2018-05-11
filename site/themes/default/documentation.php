@@ -12,12 +12,16 @@
                 <nav class="nav flex-column">
                   <a class="nav-link <?php if (Url::getUriSegment(1) == 'agent') echo 'active'; ?>" href="<?php echo Url::getBase(); ?>/documentation/agent">Agent</a>
                   <a class="nav-link <?php if (Url::getUriSegment(1) == 'arr') echo 'active'; ?>" href="<?php echo Url::getBase(); ?>/documentation/arr">Arr</a>
+                  <a class="nav-link <?php if (Url::getUriSegment(1) == 'assets') echo 'active'; ?>" href="<?php echo Url::getBase(); ?>/documentation/assets">Assets</a>
                   <a class="nav-link <?php if (Url::getUriSegment(1) == 'cookie') echo 'active'; ?>" href="<?php echo Url::getBase(); ?>/documentation/cookie">Cookie</a>
                   <a class="nav-link <?php if (Url::getUriSegment(1) == 'curl') echo 'active'; ?>" href="<?php echo Url::getBase(); ?>/documentation/curl">Curl</a>
                   <a class="nav-link <?php if (Url::getUriSegment(1) == 'date') echo 'active'; ?>" href="<?php echo Url::getBase(); ?>/documentation/date">Date</a>
                   <a class="nav-link <?php if (Url::getUriSegment(1) == 'debug') echo 'active'; ?>" href="<?php echo Url::getBase(); ?>/documentation/debug">Debug</a>
                   <a class="nav-link <?php if (Url::getUriSegment(1) == 'event') echo 'active'; ?>" href="<?php echo Url::getBase(); ?>/documentation/event">Event</a>
+                  <a class="nav-link <?php if (Url::getUriSegment(1) == 'errorhandler') echo 'active'; ?>" href="<?php echo Url::getBase(); ?>/documentation/errorhandler">Error Handler</a>
                   <a class="nav-link <?php if (Url::getUriSegment(1) == 'filesystem') echo 'active'; ?>" href="<?php echo Url::getBase(); ?>/documentation/filesystem">Filesystem</a>
+                  <a class="nav-link <?php if (Url::getUriSegment(1) == 'form') echo 'active'; ?>" href="<?php echo Url::getBase(); ?>/documentation/form">Form</a>
+                  <a class="nav-link <?php if (Url::getUriSegment(1) == 'i18n') echo 'active'; ?>" href="<?php echo Url::getBase(); ?>/documentation/i18n">I18n</a>
                   <a class="nav-link <?php if (Url::getUriSegment(1) == 'html') echo 'active'; ?>" href="<?php echo Url::getBase(); ?>/documentation/html">Html</a>
                   <a class="nav-link <?php if (Url::getUriSegment(1) == 'http') echo 'active'; ?>" href="<?php echo Url::getBase(); ?>/documentation/http">Http</a>
                   <a class="nav-link <?php if (Url::getUriSegment(1) == 'number') echo 'active'; ?>" href="<?php echo Url::getBase(); ?>/documentation/number">Number</a>
