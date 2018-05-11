@@ -1,6 +1,6 @@
 ---
 title: Documentation
-description: Documentation for Flextype Developers and Flextype Users.
+description: Documentation for Flextype Components Developers.
 template: documentation
 ---
 

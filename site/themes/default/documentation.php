@@ -13,6 +13,7 @@
                   <a class="nav-link <?php if (Url::getUriSegment(1) == 'agent') echo 'active'; ?>" href="<?php echo Url::getBase(); ?>/documentation/agent">Agent</a>
                   <a class="nav-link <?php if (Url::getUriSegment(1) == 'arr') echo 'active'; ?>" href="<?php echo Url::getBase(); ?>/documentation/arr">Arr</a>
                   <a class="nav-link <?php if (Url::getUriSegment(1) == 'assets') echo 'active'; ?>" href="<?php echo Url::getBase(); ?>/documentation/assets">Assets</a>
+                  <a class="nav-link <?php if (Url::getUriSegment(1) == 'cache') echo 'active'; ?>" href="<?php echo Url::getBase(); ?>/documentation/cache">Cache</a>
                   <a class="nav-link <?php if (Url::getUriSegment(1) == 'cookie') echo 'active'; ?>" href="<?php echo Url::getBase(); ?>/documentation/cookie">Cookie</a>
                   <a class="nav-link <?php if (Url::getUriSegment(1) == 'curl') echo 'active'; ?>" href="<?php echo Url::getBase(); ?>/documentation/curl">Curl</a>
                   <a class="nav-link <?php if (Url::getUriSegment(1) == 'date') echo 'active'; ?>" href="<?php echo Url::getBase(); ?>/documentation/date">Date</a>
