@@ -1,13 +1,12 @@
 <?php namespace Flextype;
 
-use Url;
-use Response;
+use Flextype\Component\{Http\Http, Event\Event};
 
-Events::addListener('onPageContentAfter', function () {
-    if (Url::getUriSegment(1) != '') {
-        Pages::$page['title'] = ucfirst(Url::getUriSegment(1)).' Component';
+Event::addListener('onPageContentAfter', function () {
+    if (Http::getUriSegment(1) != '') {
+        Pages::$page['title'] = ucfirst(Http::getUriSegment(1)).' Component';
 
-        $component = Url::getUriSegment(1);
+        $component = Http::getUriSegment(1);
         $page_content = Markdown::parse(file_get_contents('https://raw.githubusercontent.com/flextype-components/'.$component.'/master/README.md'));
         $page_content .= '<br>';
         $page_content .= '<h3>Download</h3>';
@@ -16,6 +15,6 @@ Events::addListener('onPageContentAfter', function () {
 
         Pages::$page['content'] = $page_content;
         Pages::$page['template'] = 'documentation';
-        Response::status(200);
+        Http::setResponseStatus(200);
     }
 });
