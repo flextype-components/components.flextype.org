@@ -26,4 +26,4 @@
 	<?php Event::dispatch('onThemeHeader'); ?>
   </head>
   <body>
-  <?php Themes::template('partials/navigation')->display(); ?>
+  <?php Themes::view('partials/navigation')->display(); ?>

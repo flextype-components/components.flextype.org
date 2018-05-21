@@ -2,7 +2,7 @@
     namespace Flextype;
     use Flextype\Component\{Event\Event, Http\Http, Registry\Registry};
 ?>
-<?php Themes::template('partials/head')->display(); ?>
+<?php Themes::view('partials/head')->display(); ?>
 <center>
     <div class="mega-header">
         <h1 class="heading">FLEXTYPE COMPONENTS</h1>
@@ -18,4 +18,4 @@
 
 <?php echo $page['content']; ?>
 
-<?php Themes::template('partials/footer')->display(); ?>
+<?php Themes::view('partials/footer')->display(); ?>
