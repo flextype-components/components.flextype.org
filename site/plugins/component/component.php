@@ -2,7 +2,7 @@
 
 use Flextype\Component\{Http\Http, Event\Event};
 
-Event::addListener('onPageContentAfter', function () {
+Event::addListener('onCurrentPageBeforeDisplayed', function () {
     if (Http::getUriSegment(1) != '') {
 
         $page = Content::getCurrentPage();

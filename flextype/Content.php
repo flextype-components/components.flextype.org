@@ -63,30 +63,41 @@ class Content
     }
 
     /**
-     * Init Pages
+     * Init Content
      *
      * @access protected
      * @return void
      */
     protected static function init() : void
     {
+        Content::processCurrentPage();
+    }
+
+    /**
+     * Process Current Page
+     *
+     * @access protected
+     * @return void
+     */
+    protected static function processCurrentPage() : void
+    {
         // Event: The page is not processed and not sent to the display.
-        Event::dispatch('onPageBeforeRender');
+        Event::dispatch('onCurrentPageBeforeProcessed');
 
-        // Init Markdown
-        Content::initMarkdown();
+        // Init Parsers
+        Content::initParsers();
 
-        // Init Shortcodes
-        Content::initShortcodes();
-
-        // Set current requested page data to $page array
+        // Set current requested page data to global $page array
         Content::$page = Content::getPage(Http::getUriString());
+
+        // Event: The page has been fully processed and not sent to the display.
+        Event::dispatch('onCurrentPageBeforeDisplayed');
 
         // Display page for current requested url
         Content::displayCurrentPage();
 
         // Event: The page has been fully processed and sent to the display.
-        Event::dispatch('onPageAfterRender');
+        Event::dispatch('onCurrentPageAfterProcessed');
     }
 
     /**
@@ -162,16 +173,14 @@ class Content
 
             // Get raw page if $raw is true
             if ($raw) {
-                Content::$page = Content::processPage($file_path, true);
-                Event::dispatch('onPageContentRawAfter');
+                $page = Content::processPage($file_path, true);
             } else {
-                Content::$page = Content::processPage($file_path);
-                Event::dispatch('onPageContentAfter');
+                $page = Content::processPage($file_path);
 
                 // Get 404 page if page is not published
-                if (isset(Content::$page['published']) && Content::$page['published'] === false) {
+                if (isset($page['published']) && $page['published'] === false) {
                     if (Filesystem::fileExists($file_path = PATH['pages'] . '/404/page.md')) {
-                        Content::$page = Content::processPage($file_path);
+                        $page = Content::processPage($file_path);
                         Http::setResponseStatus(404);
                     } else {
                         throw new \RuntimeException("404 page file does not exist.");
@@ -179,8 +188,8 @@ class Content
                 }
             }
 
-            Cache::save($page_cache_id, Content::$page);
-            return Content::$page;
+            Cache::save($page_cache_id, $page);
+            return $page;
         }
     }
 
@@ -277,47 +286,6 @@ class Content
         // Return pages array
         return $pages;
 
-    }
-
-    /**
-     * Get block
-     *
-     * $block = Content::getBlock('block-name');
-     *
-     * @access public
-     * @param  string  $block_name  Block name
-     * @param  bool    $raw  Raw or not raw content
-     * @return string
-     */
-    public static function getBlock($block_name, $raw = false) : string
-    {
-        $block_path = PATH['blocks'] . '/' . $block_name . '.md';
-
-        // Block cache id
-        $block_cache_id = '';
-
-        if (Filesystem::fileExists($block_path)) {
-            $block_cache_id = md5('block' . $block_path . filemtime($block_path) . (($raw === true) ? 'true' : 'false'));
-        }
-
-        // Try to get block from cache
-        if (Cache::contains($block_cache_id)) {
-            return Cache::fetch($block_cache_id);
-        } else {
-            if (Filesystem::fileExists($block_path)) {
-
-                $content = Filesystem::getFileContent($block_path);
-
-                if ($raw === false) {
-                    $content = Content::processContent($content);
-                }
-
-                Cache::save($block_cache_id, $content);
-                return $content;
-            } else {
-                throw new \RuntimeException("Block does not exist.");
-            }
-        }
     }
 
     /**
@@ -444,29 +412,22 @@ class Content
     {
         $content = Content::processShortcodes($content);
         $content = Content::processMarkdown($content);
-
         return $content;
     }
 
     /**
-     * Register default shortcodes
+     * Init Parsers
      *
      * @access protected
      * @return void
      */
-    protected static function registerDefaultShortcodes() : void
+    protected static function initParsers() : void
     {
-        Content::shortcode()->addHandler('site_url', function() {
-            return Http::getBaseUrl();
-        });
+        // Init Markdown
+        Content::initMarkdown();
 
-        Content::shortcode()->addHandler('block', function(ShortcodeInterface $s) {
-            return Content::getBlock($s->getParameter('name'), (($s->getParameter('raw') === 'true') ? true : false));
-        });
-
-        Content::shortcode()->addHandler('registry', function(ShortcodeInterface $s) {
-            return Registry::get($s->getParameter('item'));
-        });
+        // Init Shortcodes
+        Content::initShortcodes();
     }
 
     /**
@@ -479,6 +440,9 @@ class Content
     {
         // Create Markdown Parser object
         Content::$markdown = new Markdown();
+
+        // Prevents automatic linking of URLs
+        Content::$markdown->setUrlsLinked(false);
 
         // Event: Markdown initialized
         Event::dispatch('onMarkdownInitialized');
@@ -495,9 +459,6 @@ class Content
         // Create Shortcode Parser object
         Content::$shortcode = new ShortcodeFacade();
 
-        // Register default shortcodes
-        Content::registerDefaultShortcodes();
-
         // Event: Shortcodes initialized and now we can add our custom shortcodes
         Event::dispatch('onShortcodesInitialized');
     }
@@ -510,6 +471,7 @@ class Content
      */
     protected static function displayCurrentPage() : void
     {
+        Http::setRequestHeaders('Content-Type: text/html; charset='.Registry::get('site.charset'));
         Themes::view(empty(Content::$page['template']) ? 'templates/default' : 'templates/' . Content::$page['template'])
             ->assign('page', Content::$page, true)
             ->display();
