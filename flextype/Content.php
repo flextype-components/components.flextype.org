@@ -16,25 +16,16 @@ use Flextype\Component\{Arr\Arr, Http\Http, Filesystem\Filesystem, Event\Event, 
 use Symfony\Component\Yaml\Yaml;
 use Thunder\Shortcode\ShortcodeFacade;
 use Thunder\Shortcode\Shortcode\ShortcodeInterface;
-use ParsedownExtra as Markdown;
 
 class Content
 {
     /**
-     * An instance of the Cache class
-     *
-     * @var object
-     * @access protected
-     */
-    protected static $instance = null;
-
-    /**
-     * Markdown Object
+     * An instance of the Content class
      *
      * @var object
      * @access private
      */
-    private static $markdown = null;
+    private static $instance = null;
 
     /**
      * Shortcode object
@@ -48,16 +39,30 @@ class Content
      * Current page data array
      *
      * @var array
-     * @access protected
+     * @access private
      */
     private static $page = [];
 
     /**
-     * Protected constructor since this is a static class.
+     * Private clone method to enforce singleton behavior.
      *
-     * @access  protected
+     * @access private
      */
-    protected function __construct()
+    private function __clone() { }
+
+    /**
+     * Private wakeup method to enforce singleton behavior.
+     *
+     * @access private
+     */
+    private function __wakeup() { }
+
+    /**
+     * Private construct method to enforce singleton behavior.
+     *
+     * @access private
+     */
+    private function __construct()
     {
         Content::init();
     }
@@ -65,10 +70,10 @@ class Content
     /**
      * Init Content
      *
-     * @access protected
+     * @access private
      * @return void
      */
-    protected static function init() : void
+    private static function init() : void
     {
         Content::processCurrentPage();
     }
@@ -76,10 +81,10 @@ class Content
     /**
      * Process Current Page
      *
-     * @access protected
+     * @access private
      * @return void
      */
-    protected static function processCurrentPage() : void
+    private static function processCurrentPage() : void
     {
         // Event: The page is not processed and not sent to the display.
         Event::dispatch('onCurrentPageBeforeProcessed');
@@ -119,8 +124,8 @@ class Content
      * Content::updateCurrentPage('title', 'New page title');
      *
      * @access  public
-     * @param   string   $path   Array path
-     * @param   mixed    $value  Value to set
+     * @param   string $path  Array path
+     * @param   mixed  $value Value to set
      * @return  void
      */
     public static function updateCurrentPage(string $path, $value) : void
@@ -142,9 +147,9 @@ class Content
     {
         // if $url is empty then set path for defined main page
         if ($url === '') {
-            $file_path = PATH['pages'] . '/' . Registry::get('site.pages.main') . '/page.md';
+            $file_path = PATH['pages'] . '/' . Registry::get('site.pages.main') . '/page.html';
         } else {
-            $file_path = PATH['pages'] . '/'  . $url . '/page.md';
+            $file_path = PATH['pages'] . '/'  . $url . '/page.html';
         }
 
         $page_cache_id = '';
@@ -156,15 +161,15 @@ class Content
 
         // Try to get page from cache
         if (Cache::contains($page_cache_id)) {
+            if (!Filesystem::fileExists($file_path)) {
+                Http::setResponseStatus(404);
+            }
             return Cache::fetch($page_cache_id);
         } else {
 
             // Get 404 page if page file is not exists
-            if (Filesystem::fileExists($file_path)) {
-                $file_path = $file_path;
-            } else {
-                if (Filesystem::fileExists($file_path = PATH['pages'] . '/404/page.md')) {
-                    $file_path = $file_path;
+            if (!Filesystem::fileExists($file_path)) {
+                if (Filesystem::fileExists($file_path = PATH['pages'] . '/404/page.html')) {
                     Http::setResponseStatus(404);
                 } else {
                     throw new \RuntimeException("404 page file does not exist.");
@@ -179,7 +184,7 @@ class Content
 
                 // Get 404 page if page is not published
                 if (isset($page['published']) && $page['published'] === false) {
-                    if (Filesystem::fileExists($file_path = PATH['pages'] . '/404/page.md')) {
+                    if (Filesystem::fileExists($file_path = PATH['pages'] . '/404/page.html')) {
                         $page = Content::processPage($file_path);
                         Http::setResponseStatus(404);
                     } else {
@@ -199,11 +204,11 @@ class Content
      * $pages = Content::getPages('projects');
      *
      * @access  public
-     * @param   string  $url  Page url
-     * @param   bool    $raw  Raw or not raw content
-     * @param   string  $order_by  Order type
-     * @param   int     $offset  Offset
-     * @param   int     $length  Length
+     * @param   string  $url      Page url
+     * @param   bool    $raw      Raw or not raw content
+     * @param   string  $order_by Order type
+     * @param   int     $offset   Offset
+     * @param   int     $length   Length
      * @return  array
      */
     public static function getPages(string $url = '', bool $raw = false, string $order_by = 'date', string $order_type = 'DESC', int $offset = null, int $length = null) : array
@@ -226,7 +231,7 @@ class Content
         if ($url === '') {
 
             // Get pages list
-            $pages_list = Filesystem::getFilesList($file_path , 'md');
+            $pages_list = Filesystem::getFilesList($file_path , 'html');
 
             // Create pages cached id
             foreach ($pages_list as $key => $page) {
@@ -247,11 +252,11 @@ class Content
         } else {
 
             // Get pages list
-            $pages_list = Filesystem::getFilesList($file_path, 'md');
+            $pages_list = Filesystem::getFilesList($file_path, 'html');
 
             // Create pages cached id
             foreach ($pages_list as $key => $page) {
-                if (strpos($page, $url . '/page.md') !== false) {
+                if (strpos($page, $url . '/page.html') !== false) {
                     // ignore ...
                 } else {
                     $pages_cache_id .= md5('pages' . $page . filemtime($page) . (($raw === true) ? 'true' : 'false') . $order_by . $order_type . $offset . $length);
@@ -263,7 +268,7 @@ class Content
             } else {
                 // Create pages array from pages list and ignore current requested page
                 foreach ($pages_list as $key => $page) {
-                    if (strpos($page, $url . '/page.md') !== false) {
+                    if (strpos($page, $url . '/page.html') !== false) {
                         // ignore ...
                     } else {
                         $pages[$key] = Content::processPage($page, $raw);
@@ -289,17 +294,6 @@ class Content
     }
 
     /**
-     * Returns $markdown object
-     *
-     * @access public
-     * @return object
-     */
-    public static function markdown() : Markdown
-    {
-        return Content::$markdown;
-    }
-
-    /**
      * Returns $shortcode object
      *
      * @access public
@@ -313,7 +307,7 @@ class Content
     /**
      * Process page
      *
-     * $page = Content::processPage(PATH['pages'] . '/home/page.md');
+     * $page = Content::processPage(PATH['pages'] . '/home/page.html');
      *
      * @access public
      * @param  string $file_path File path
@@ -343,8 +337,8 @@ class Content
 
             // Create page url item
             $url = str_replace(PATH['pages'] , Http::getBaseUrl(), $file_path);
-            $url = str_replace('page.md', '', $url);
-            $url = str_replace('.md', '', $url);
+            $url = str_replace('page.html', '', $url);
+            $url = str_replace('.html', '', $url);
             $url = str_replace('\\', '/', $url);
             $url = str_replace('///', '/', $url);
             $url = str_replace('//', '/', $url);
@@ -386,20 +380,6 @@ class Content
     }
 
     /**
-     * Process markdown
-     *
-     * $content = Content::processMarkdown($content);
-     *
-     * @access public
-     * @param  string $content Content to parse
-     * @return string
-     */
-    public static function processMarkdown(string $content) : string
-    {
-        return Content::$markdown->text($content);
-    }
-
-    /**
      * Process content with markdown and shortcodes processors
      *
      * $content = Content::processContent($content);
@@ -410,51 +390,28 @@ class Content
      */
     public static function processContent(string $content) : string
     {
-        $content = Content::processShortcodes($content);
-        $content = Content::processMarkdown($content);
-        return $content;
+        return Content::processShortcodes($content);
     }
 
     /**
      * Init Parsers
      *
-     * @access protected
+     * @access private
      * @return void
      */
-    protected static function initParsers() : void
+    private static function initParsers() : void
     {
-        // Init Markdown
-        Content::initMarkdown();
-
         // Init Shortcodes
         Content::initShortcodes();
     }
 
     /**
-     * Init Markdown
-     *
-     * @access protected
-     * @return void
-     */
-    protected static function initMarkdown() : void
-    {
-        // Create Markdown Parser object
-        Content::$markdown = new Markdown();
-
-        // Prevents automatic linking of URLs
-        Content::$markdown->setUrlsLinked(false);
-
-        // Event: Markdown initialized
-        Event::dispatch('onMarkdownInitialized');
-    }
-
-    /**
      * Init Shortcodes
      *
-     * @access protected
+     * @access private
      * @return void
      */
-    protected static function initShortcodes() : void
+    private static function initShortcodes() : void
     {
         // Create Shortcode Parser object
         Content::$shortcode = new ShortcodeFacade();
@@ -466,10 +423,10 @@ class Content
     /**
      * Display current page
      *
-     * @access protected
+     * @access private
      * @return void
      */
-    protected static function displayCurrentPage() : void
+    private static function displayCurrentPage() : void
     {
         Http::setRequestHeaders('Content-Type: text/html; charset='.Registry::get('site.charset'));
         Themes::view(empty(Content::$page['template']) ? 'templates/default' : 'templates/' . Content::$page['template'])
@@ -478,14 +435,17 @@ class Content
     }
 
     /**
-     * Return the Content instance.
-     * Create it if it's not already created.
+     * Get the Content instance.
      *
      * @access public
      * @return object
      */
-    public static function instance()
-    {
-        return !isset(self::$instance) and self::$instance = new Content();
-    }
+     public static function getInstance()
+     {
+        if (is_null(Content::$instance)) {
+            Content::$instance = new self;
+        }
+
+        return Content::$instance;
+     }
 }
