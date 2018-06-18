@@ -16,6 +16,7 @@ theme: default
 plugins:
   - highlight
   - component
+  - markdown
 
 locale: "en"
 locales: [en]
